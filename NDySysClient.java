@@ -29,7 +29,10 @@ public class NDySysClient
 		
 		printComponentDirectionVector(getMatrixOutput(windMatrix, location_1));
 		printMergedDirectionVector(getMatrixOutput(windMatrix, location_1));
-		int[][] customMatrix = input2x2Matrix();
+		System.out.println("\n");
+		
+		// infinite use of user input
+		infiniteWindCheck();
 	}
 	
 	//Given a matrix and vector, return the vector from 
@@ -155,5 +158,43 @@ public class NDySysClient
 		return matrix;
 		
 	}
+	
+	public static int[] inputLocation() {
+		Scanner sc = new Scanner(System.in);
+		int[] matrix = new int[2];
+		
+		System.out.println("Please enter first int of your location :");
+		int index1 = Integer.parseInt(sc.nextLine());
+		matrix[0]=index1;
+		
+		System.out.println("Please enter second int of your location :");
+		int index2 = Integer.parseInt(sc.nextLine());
+		matrix[1]=index2;
+		
+		System.out.println("Location : ("+index1+","+index2+")");
+		
+		return matrix;
+		
+	}
+	
+	public static void infiniteWindCheck() {
+		boolean play = true;
+		Scanner sc = new Scanner(System.in);
+		while(play) {
+				// custom matix created by user
+				int[][] customMatrix = input2x2Matrix();
+				int[] customLocation = inputLocation();
+				
+				// matrix operation and conversion from array to merged polar coordinate
+				printComponentDirectionVector(getMatrixOutput(customMatrix, customLocation));
+				printMergedDirectionVector(getMatrixOutput(customMatrix, customLocation));
+				
+				System.out.println("Do you want to use the program again? (y/n");
+				if(sc.nextLine().toLowerCase().equals("n")) {
+					play = false;
+				}
+				
+		
+	}
 
-}
+}}
