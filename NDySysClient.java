@@ -142,15 +142,15 @@ public class NDySysClient
 		
 		System.out.println("Please enter Row1 Col2 (int) :");
 		int r1c2 = Integer.parseInt(sc.nextLine());
-		matrix[0][1]=r1c1;
+		matrix[0][1]=r1c2;
 
 		System.out.println("Please enter Row2 Col1 (int) :");
 		int r2c1 = Integer.parseInt(sc.nextLine());
-		matrix[1][0]=r1c1;
+		matrix[1][0]=r2c1;
 
 		System.out.println("Please enter Row2 Col2 (int) :");
 		int r2c2 = Integer.parseInt(sc.nextLine());
-		matrix[1][1]=r1c1;
+		matrix[1][1]=r2c2;
 
 		
 		System.out.println("Matrix\n["+r1c1+","+r1c2+"]\n["+r2c1+","+r2c2+"]");
@@ -180,16 +180,16 @@ public class NDySysClient
 	public static void infiniteWindCheck() {
 		boolean play = true;
 		Scanner sc = new Scanner(System.in);
+		int[][] customMatrix = input2x2Matrix();
 		while(play) {
 				// custom matix created by user
-				int[][] customMatrix = input2x2Matrix();
 				int[] customLocation = inputLocation();
 				
 				// matrix operation and conversion from array to merged polar coordinate
 				printComponentDirectionVector(getMatrixOutput(customMatrix, customLocation));
 				printMergedDirectionVector(getMatrixOutput(customMatrix, customLocation));
 				
-				System.out.println("Do you want to use the program again? (y/n");
+				System.out.println("Do you want to use the program again? (y/n)");
 				if(sc.nextLine().toLowerCase().equals("n")) {
 					play = false;
 				}
